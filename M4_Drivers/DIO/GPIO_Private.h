@@ -97,7 +97,9 @@ typedef struct
 
 
 
-
+/* enable port on or off bec there are a problem for RCC when configer and didn't enable it */
+#define		Port_ON			1
+#define		Port_OFF		0
 
 
 

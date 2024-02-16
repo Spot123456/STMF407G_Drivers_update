@@ -16,6 +16,18 @@
  *
  * */
 
+/* Enable the port :
+ * Port_OFF
+ * Port_ON
+ * */
+#define PORTA_Enable		Port_OFF
+#define	PORTB_Enable		Port_OFF
+#define PORTC_Enable		Port_OFF
+#define PORTD_Enable		Port_ON
+#define PORTE_Enable		Port_OFF
+
+
+
 /* GPIOA */
 #define		GPIOA_State_Pin0 		GPIO_input
 #define		GPIOA_State_Pin1 		GPIO_input
@@ -84,9 +96,9 @@
 #define		GPIOD_State_Pin10 	GPIO_input
 #define		GPIOD_State_Pin11	GPIO_input
 #define		GPIOD_State_Pin12 	GPIO_input
-#define		GPIOD_State_Pin13	GPIO_input
-#define		GPIOD_State_Pin14	GPIO_input
-#define		GPIOD_State_Pin15	GPIO_input
+#define		GPIOD_State_Pin13	GPIO_output
+#define		GPIOD_State_Pin14	GPIO_output
+#define		GPIOD_State_Pin15	GPIO_output
 
 /* GPIOE */
 #define		GPIOE_State_Pin0 	GPIO_input
@@ -206,9 +218,9 @@
 /*******************************************************************************/
 
 /*GPIO port pull-up/pull-down register (GPIOx_PUPDR)
- * No pull-up( pull-down)
- * Pull-up
- * Pull-down
+ * No_Pull_up  ( pull-down)
+ * Pull_up
+ * Pull_down
  * */
 
 /* GPIOA */
@@ -283,9 +295,9 @@
 #define		GPIOD_Pull_Up_Down_Pin10			Pull_up
 #define		GPIOD_Pull_Up_Down_Pin11			Pull_up
 #define		GPIOD_Pull_Up_Down_Pin12			Pull_up
-#define		GPIOD_Pull_Up_Down_Pin13			Pull_up
-#define		GPIOD_Pull_Up_Down_Pin14			Pull_up
-#define		GPIOD_Pull_Up_Down_Pin15			Pull_up
+#define		GPIOD_Pull_Up_Down_Pin13			No_Pull_up
+#define		GPIOD_Pull_Up_Down_Pin14			Pull_down
+#define		GPIOD_Pull_Up_Down_Pin15			Pull_down
 
 
 #endif /* GPIO_CONFIG_H_ */

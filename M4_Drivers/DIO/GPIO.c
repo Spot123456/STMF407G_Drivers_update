@@ -33,38 +33,43 @@
 void GPIO_V_PortInterface_Direction()
 {
 	/* Pin Config State */
-	GPIOA_Reg->GPIOx_MODER= GPIOA_State;
-	GPIOB_Reg->GPIOx_MODER= GPIOB_State;
-	GPIOC_Reg->GPIOx_MODER= GPIOC_State;
-	GPIOD_Reg->GPIOx_MODER= GPIOD_State;
-	GPIOE_Reg->GPIOx_MODER= GPIOE_State;
-
 	/* GPIO port output type register */
-	GPIOA_Reg->GPIOx_OTYPER= GPIOA_output_type;
-	GPIOB_Reg->GPIOx_OTYPER= GPIOB_output_type;
-	GPIOC_Reg->GPIOx_OTYPER= GPIOC_output_type;
-	GPIOD_Reg->GPIOx_OTYPER= GPIOD_output_type;
-
 	/* GPIO port pull up / down Registers */
-
-	GPIOA_Reg->GPIOx_PUPDR = GPIOA_Pull_Up_Down;
-	GPIOB_Reg->GPIOx_PUPDR = GPIOB_Pull_Up_Down;
-	GPIOC_Reg->GPIOx_PUPDR = GPIOC_Pull_Up_Down;
-	GPIOD_Reg->GPIOx_PUPDR = GPIOD_Pull_Up_Down;
-
 	/* Alternative function registers (high/low) */
+
+#if PORTA_Enable
+	GPIOA_Reg->GPIOx_MODER= GPIOA_State;
+	GPIOA_Reg->GPIOx_OTYPER= GPIOA_output_type;
+	GPIOA_Reg->GPIOx_PUPDR = GPIOA_Pull_Up_Down;
 	GPIOA_Reg->GPIOx_AFRH = AFIOA_set_High;
-	GPIOB_Reg->GPIOx_AFRH = AFIOB_set_High;
-	GPIOC_Reg->GPIOx_AFRH = AFIOC_set_High;
-	GPIOD_Reg->GPIOx_AFRH = AFIOD_set_High;
-
 	GPIOA_Reg->GPIOx_AFRL = AFIOA_set_Low;
+#endif
+#if PORTB_Enable
+	GPIOB_Reg->GPIOx_MODER= GPIOB_State;
+	GPIOB_Reg->GPIOx_OTYPER= GPIOB_output_type;
+	GPIOB_Reg->GPIOx_PUPDR = GPIOB_Pull_Up_Down;
+	GPIOB_Reg->GPIOx_AFRH = AFIOB_set_High;
 	GPIOB_Reg->GPIOx_AFRL = AFIOB_set_Low;
+#endif
+#if PORTC_Enable
+	GPIOC_Reg->GPIOx_MODER= GPIOC_State;
+	GPIOC_Reg->GPIOx_OTYPER= GPIOC_output_type;
+	GPIOC_Reg->GPIOx_PUPDR = GPIOC_Pull_Up_Down;
+	GPIOC_Reg->GPIOx_AFRH = AFIOC_set_High;
 	GPIOC_Reg->GPIOx_AFRL = AFIOC_set_Low;
+#endif
+
+#if PORTD_Enable
+	GPIOD_Reg->GPIOx_MODER= GPIOD_State;
+	GPIOD_Reg->GPIOx_OTYPER= GPIOD_output_type;
+	GPIOD_Reg->GPIOx_PUPDR = GPIOD_Pull_Up_Down;
+	GPIOD_Reg->GPIOx_AFRH = AFIOD_set_High;
 	GPIOD_Reg->GPIOx_AFRL = AFIOD_set_Low;
+#endif
 
-
-
+#if PORTE_Enable
+	GPIOE_Reg->GPIOx_MODER= GPIOE_State;
+#endif
 
 }
 
