@@ -36,13 +36,16 @@ typedef struct
 	u32		GPIOx_AFRH;
 }GPIO_ST;
 
-#define		GPIOA_Reg 	((GPIO_ST*)(GPIOA_BaseAdd))
-#define 	GPIOB_Reg	((GPIO_ST*)(GPIOB_BaseAdd))
-#define		GPIOC_Reg 	((GPIO_ST*)(GPIOC_BaseAdd))
-#define 	GPIOD_Reg	((GPIO_ST*)(GPIOD_BaseAdd))
-#define		GPIOE_Reg 	((GPIO_ST*)(GPIOE_BaseAdd))
-#define 	GPIOF_Reg	((GPIO_ST*)(GPIOF_BaseAdd))
-#define		GPIOG_Reg 	((GPIO_ST*))(GPIOG_BaseAdd))
+
+#define		GPIOA_MODER	*((u32*)(GPIOA_BaseAdd))
+
+#define		GPIOA_Reg 	((GPIO_ST*)GPIOA_BaseAdd)
+#define 	GPIOB_Reg	((GPIO_ST*)GPIOB_BaseAdd)
+#define		GPIOC_Reg 	((GPIO_ST*)GPIOC_BaseAdd)
+#define 	GPIOD_Reg	((GPIO_ST*)GPIOD_BaseAdd)
+#define		GPIOE_Reg 	((GPIO_ST*)GPIOE_BaseAdd)
+#define 	GPIOF_Reg	((GPIO_ST*)GPIOF_BaseAdd)
+#define		GPIOG_Reg 	((GPIO_ST*)GPIOG_BaseAdd)
 
 
 /*	GPIO State Private*/
@@ -53,7 +56,7 @@ typedef struct
 
 /* GPIO port output type register */
 
-#define  Output_push_pull	 	0
+//#define  Output_push_pull	 	0
 #define  Output_open_drain		1
 
 
@@ -144,6 +147,34 @@ typedef struct
 #define		AFIOB_set_Low				CON_Half_Port(AFIOB_set_pin0,AFIOB_set_pin1,AFIOB_set_pin2,AFIOB_set_pin3,AFIOB_set_pin4,AFIOB_set_pin5,AFIOB_set_pin6,AFIOB_set_pin7)
 #define		AFIOC_set_Low				CON_Half_Port(AFIOC_set_pin0,AFIOC_set_pin1,AFIOC_set_pin2,AFIOC_set_pin3,AFIOC_set_pin4,AFIOC_set_pin5,AFIOC_set_pin6,AFIOC_set_pin7)
 #define		AFIOD_set_Low				CON_Half_Port(AFIOD_set_pin0,AFIOD_set_pin1,AFIOD_set_pin2,AFIOD_set_pin3,AFIOD_set_pin4,AFIOD_set_pin5,AFIOD_set_pin6,AFIOD_set_pin7)
+
+
+
+
+
+
+
+typedef struct
+{
+	u32	GPIOA_B_X_MODER;
+	u32	GPIOx_OTYPER;
+	u32	GPIOx_B_OSPEEDR;
+	u32 GPIOA_B_X_PUPDR;
+	u32	GPIOx_IDR;
+	u32	GPIOx_ODR;
+	u32	GPIOx_BSRR;
+	u32	GPIOx_LCKR;
+	u32	GPIOx_AFRL;
+	u32	GPIOx_AFRH;
+}ST_GPIO_Reg;
+
+#define		GPIOA	((ST_GPIO_Reg*)GPIOA_BaseAdd)
+#define		GPIOB	((ST_GPIO_Reg*)GPIOB_BaseAdd)
+#define		GPIOC	((ST_GPIO_Reg*)GPIOC_BaseAdd)
+#define		GPIOD	((ST_GPIO_Reg*)GPIOD_BaseAdd)
+#define		GPIOE	((ST_GPIO_Reg*)GPIOE_BaseAdd)
+
+
 
 
 #endif /* GPIO_PRIVATE_H_ */

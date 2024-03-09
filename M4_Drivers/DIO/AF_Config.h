@@ -25,8 +25,8 @@
 
 #define		AFIOA_set_pin0				AF_system
 #define 	AFIOA_set_pin1				AF_system
-#define		AFIOA_set_pin2				AF_system
-#define 	AFIOA_set_pin3				AF_system
+#define		AFIOA_set_pin2				AF_UART_1_2_3
+#define 	AFIOA_set_pin3				AF_UART_1_2_3
 #define		AFIOA_set_pin4				AF_system
 #define 	AFIOA_set_pin5				AF_system
 #define		AFIOA_set_pin6				AF_system
@@ -53,7 +53,7 @@
 #define		AFIOB_set_pin8				AF_system
 #define 	AFIOB_set_pin9				AF_system
 #define		AFIOB_set_pin10				AF_system
-#define 	AFIOB_set_pin11				AF_system
+#define 	AFIOB_set_pin11				AF_UART_1_2_3
 #define		AFIOB_set_pin12				AF_system
 #define 	AFIOB_set_pin13				AF_system
 #define		AFIOB_set_pin14				AF_system
@@ -86,7 +86,7 @@
 #define 	AFIOD_set_pin5				AF_system
 #define		AFIOD_set_pin6				AF_system
 #define 	AFIOD_set_pin7				AF_system
-#define		AFIOD_set_pin8				AF_system
+#define		AFIOD_set_pin8				AF_UART_1_2_3
 #define 	AFIOD_set_pin9				AF_system
 #define		AFIOD_set_pin10				AF_system
 #define 	AFIOD_set_pin11				AF_system

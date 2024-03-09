@@ -29,11 +29,12 @@ void RCC_V_InitCLK(void)
 	#elif RCC_Enable_Interrupt == RCC_Interrupt
 		//enable interrupt flag
 		RCC_Reg->RCC_CIR|=(1<<10);
+		SET_Bit(RCC_Reg->RCC_CR,19);		//clk security
 	#endif
 
 #elif InputCLK == RCC_HSE
 	SET_Bit(RCC_Reg->RCC_CR,16);
-	SET_Bit(RCC_Reg->RCC_CR,19);		//clk security
+	//SET_Bit(RCC_Reg->RCC_CR,19);		//clk security
 	SET_Bit(RCC_Reg->RCC_CR,18);		// by pass HSE
 
 	#if RCC_Enable_Interrupt== RCC_Polling
@@ -134,19 +135,20 @@ void RCC_IRQHandler ()
 {
 	if(Handler_RCC!=NULL)
 	{
-		if (GET_Bit(RCC_Reg->RCC_CFGR , 3)==1) //HSI
+		if (GET_Bit(RCC_Reg->RCC_CIR , 2)==1) //HSI
 		{
 			Handler_RCC();
 			// clear the flag
-			SET_Bit(RCC_Reg->RCC_CFGR,18);
+			SET_Bit(RCC_Reg->RCC_CIR,18);
 
 			//should open led for check
 		}
-		else if(GET_Bit(RCC_Reg->RCC_CFGR , 3)==1) // HSE
+		else if(GET_Bit(RCC_Reg->RCC_CIR , 3)==1) // HSE
 		{
 			Handler_RCC();
 			// clear the flag
-			SET_Bit(RCC_Reg->RCC_CFGR,19);
+			SET_Bit(RCC_Reg->RCC_CIR,19);
+			CLR_Bit(RCC_Reg->RCC_CIR,11);
 		}
 		// do any thing
 	}
